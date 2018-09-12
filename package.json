@@ -1,0 +1,43 @@
+{
+  "name": "jldc",
+  "version": "0.1.0",
+  "description": "JSON-LD comand line tool with advanced user interface and error trapping.",
+  "main": "index.js",
+  "homepage": "https://github.com/Aaron-Sterling/jldc/blob/master/README.md",
+  "bugs": "https://github.com/Aaron-Sterling/jldc/issues",
+  "repository": "https://github.com/Aaron-Sterling/jldc",
+  "bin": {
+    "jldc": "./index.js"
+  },
+  "keywords": [
+    "json",
+    "jsonld",
+    "json-ld",
+    "cli",
+    "cli-tool",
+    "command-line"
+  ],
+  "author": "Aaron Sterling",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/figlet": "^1.2.0",
+    "@types/inquirer": "0.0.43",
+    "@types/jsonld": "github:types/npm-jsonld",
+    "@types/node": "^10.9.2",
+    "@types/ora": "^1.3.4",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.17.1",
+    "es6-promise": "^4.2.4",
+    "figlet": "^1.2.0",
+    "immutable": "^3.8.2",
+    "inquirer": "^6.2.0",
+    "inversify": "^4.13.0",
+    "jsonld": "^1.0.4",
+    "ora": "^3.0.0",
+    "reflect-metadata": "^0.1.12",
+    "shelljs": "^0.8.2"
+  }
+}
