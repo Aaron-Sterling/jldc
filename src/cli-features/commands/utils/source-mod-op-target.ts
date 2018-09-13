@@ -16,15 +16,15 @@ import { promise as oraSpinner } from 'ora';
 
 
 
-export function sourceModifierOperation(source: string, modifier: string, target: string, operation: JsonLdModifierOperation, options : any, opName: string) {
-    oraSpinner(_sourceModifierOperation(source, modifier, target, operation, options), 'Running ' + opName);
+export function sourceModifierOperation<T>(source: string, modifier: string, target: string, operation: JsonLdModifierOperation<T>, options : any, opName: string) {
+    oraSpinner(_sourceModifierOperation<T>(source, modifier, target, operation, options), 'Running ' + opName);
 }
 
-function _sourceModifierOperation(source: string, modifier: string, target: string, operation: JsonLdModifierOperation, options: any): Promise<boolean> {
+function _sourceModifierOperation<T>(source: string, modifier: string, target: string, operation: JsonLdModifierOperation<T>, options: any): Promise<boolean> {
 
     let startingJson: JsonLdObject;
     let modifierToUse: JsonLdObject;
-    let afterOperationApplied: JsonLd;
+    let afterOperationApplied: T;
     
     // source file read, and main return statement
     return readJsonLdFile(source)
@@ -51,7 +51,7 @@ function _sourceModifierOperation(source: string, modifier: string, target: stri
     // now perform the main JSON-LD operation
     // note: we need to wrap the es6-promise (OldPromise) in a TS promise for the compiler to be happy
     function performOperation(): Promise<boolean> {  
-        return Promise.resolve(operation(startingJson, modifierToUse, options))
+        return operation(startingJson, modifierToUse, options)
                       .then(res => {
                                     afterOperationApplied = res;
                                     return writeTargetFile();

@@ -24,7 +24,7 @@ function _sourceOpTarget<T>(source: string, target: string, operation: JsonLdOpe
                            });
 
     function performOperation(): Promise<boolean> {  
-        return Promise.resolve(operation(startingJson, options))
+        return operation(startingJson, options)
                         .then(res => {
                                       afterOperationApplied = res;
                                       return writeTargetFile();
