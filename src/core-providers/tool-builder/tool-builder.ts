@@ -5,7 +5,7 @@ import { inject, injectable } from 'inversify';
 import { TYPES } from '../../inversify/types';
 import { CLICommands } from '../../cli-features/commands/cli-commands-feature-provider';
 
-import { getVersion } from './version';
+import { getVersion } from '../settings-service/settings-info';
 import { getUsage } from './usage';
 
 
@@ -19,10 +19,9 @@ class ToolBuilder {
 
     buildCLItool(): Command {
   
-        // obtain version information from package.json
-        // this is written as a sync call because it uses a NodeJS sync method
+        // obtain version information
         this.cliTool.version(getVersion(), '-v, --version');
-    
+
         // obtain usage information
         this.cliTool.usage(getUsage());
 
@@ -31,7 +30,7 @@ class ToolBuilder {
     
         // build the commands
         this.commandBuilder.buildAllCommands(this.cliTool);
-    
+
         return this.cliTool;
     }
 }

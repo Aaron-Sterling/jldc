@@ -1,30 +1,24 @@
 // show program info
 
-import { readFile } from 'fs';
-import { promisify } from 'util';
+
 import figlet from 'figlet';
 import chalk from 'chalk';
+import { Settings } from '../models/settings-model';
+import { getSettings } from '../core-providers/settings-service/settings-info';
 
-const readFilePromise = promisify(readFile);
-const PACKAGE_JSON_PATH = 'package.json';
 const TITLE = 'JSON-LD CLI tool for NodeJS\n' + 
               '(C) 2018 by Aaron Sterling\n'
 
 export function showProgramInfo() {
     figlet.text('JLDC', (err, res) => { 
                                        if (!err) { console.log(chalk.greenBright(res)); }
-                                       readFilePromise(PACKAGE_JSON_PATH, 'utf8')
-                                          .then(info => showInfo(JSON.parse(info)))
-                                          .catch(_ => showInfo({}))
+                                       showInfo(getSettings());
                                       })
 }
 
-function showInfo(packageJSON: any) {
-    const version = (packageJSON.version as string) || 'Version information not available.';
-    const license = (packageJSON.license as string) || 'License not available.';
-    const repository = (packageJSON.repository as string) || 'Repository not available.'
+function showInfo(settings: Settings) {
     console.log(chalk.greenBright(TITLE));
-    console.log('Version: ',version);
-    console.log('License: ',license);
-    console.log('Repository: ',repository);
+    console.log('Version: ', settings.version);
+    console.log('License: ', settings.license);
+    console.log('Repository: ', settings.repository);
 }

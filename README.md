@@ -7,7 +7,7 @@ To install:
 
 **IMPORTANT: You need Python 2.x (2.7 recommended) in order to build this installation.** This cli tool has the official [jsonld.js](https://github.com/digitalbazaar/jsonld.js/) library as a dependency, which in turn has the [node-gyp](https://github.com/nodejs/node-gyp) library as a dependency. Building the node-gyp library requires Python 2.x; it *does not work* with Python 3.x. You do not need to know any Python to use this tool; the language is invisible after the build process.
 
-JLDC uses the NodeJS promisify function, so it requires at least NodeJS 8.0. The code imports a JSON file as a module, so if you want to compile the TS code (separately from installing with npm) you will need at least Typescript 2.9.
+JLDC uses the NodeJS promisify function, so it requires at least NodeJS 8.0.
 
 An [official JSON-LD CLI Tool](https://github.com/digitalbazaar/jsonld-cli/) also exists (written by DigitalBazaar, not by me). JLDC has better error trapping, more comprehensive help messages, and a cleaner interface with JSON-LD version 2. However, JLDC contains much more code, so if you understand JSON-LD well and you want a lighter-weight tool, the official CLI is probably a better choice for you.
 
@@ -56,7 +56,7 @@ For more information see [here](http://json-ld.org/spec/latest/json-ld/#expanded
 ```flatten [options] <sourceFile> [targetFile]```
 
 Flatten the JSON or JSON-LD in `sourceFile`, and write the result to `targetFile`.
-If not specified, the name of the target file is `targetFile.json`.
+If not specified, the name of the target file is `targetFile.json`. Currently, `-h` or `--help` is the only option supported.
 For more information see [here](http://json-ld.org/spec/latest/json-ld/#flattened-document-form)
 
 ### frame
@@ -64,18 +64,18 @@ For more information see [here](http://json-ld.org/spec/latest/json-ld/#flattene
 ```frame [options] <sourceFile> <frameFile> [targetFile]```
 
 Apply the frame from `frameFile` to the JSON or JSON-LD in `sourceFile`, and write the result to `targetFile`.
-If not specified, the name of the target file is `targetFile.json`.
+If not specified, the name of the target file is `targetFile.json`. Currently, `-h` or `--help` is the only option supported.
 For more information see [here](http://json-ld.org/spec/latest/json-ld-framing/#introduction)
 
 ### normalize
 
 ```normalize [options] <sourceFile> [targetFile]```
 
-Normalize a document using the RDF Dataset Normalization Algorithm (URDNA2015).
+Normalize a document using the RDF Dataset Normalization Algorithm (URDNA2015). Currently, `-h` or `--help` is the only option supported.
 For more information see [here](http://json-ld.github.io/normalization/spec/)
 
 ### serialize
 
 ```serialize [options] <sourceFile> [targetFile]```
 
-Serialize a document to N-Quads (RDF).
+Serialize a document to N-Quads (RDF). Currently, `-h` or `--help` is the only option supported.

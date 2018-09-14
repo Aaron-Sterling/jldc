@@ -3,7 +3,7 @@
 import { injectable } from 'inversify';
 import { sourceModifierOperation } from '../utils/source-mod-op-target';
 import { validateSourceModifierTarget } from '../../../core-providers/file-services/file-validators/validate-source-mod-target';
-import { promises as jsonld, CompactOptions } from 'jsonld';
+import { promises as jsonld, CompactOptions, JsonLd } from 'jsonld';
 import { taskMessage } from '../utils/task-message';
 import { cancelMessage } from '../utils/cancellation-message';
 import { DEFAULT_TARGET_FILE } from '../utils/default-target-file';
@@ -25,7 +25,7 @@ class CompactAction {
         }
         validateSourceModifierTarget({name: sourceFile, title: 'source file'}, {name: contextFile, title: 'context file'}, {name: targetFile, title: 'target file'})
              .then(validated => { if (validated) {
-                                                  sourceModifierOperation(sourceFile, contextFile, targetFile, jsonld.compact, options, 'Compact algorithm');
+                                                  sourceModifierOperation<JsonLd>(sourceFile, contextFile, targetFile, jsonld.compact, options, 'Compact algorithm');
                                                  }
                                   else { cancelMessage('Compact algorithm'); }
                                 });
