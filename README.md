@@ -53,8 +53,29 @@ For more information see [here](http://json-ld.org/spec/latest/json-ld/#expanded
 
 ### flatten
 
+```flatten [options] <sourceFile> [targetFile]```
+
+Flatten the JSON or JSON-LD in `sourceFile`, and write the result to `targetFile`.
+If not specified, the name of the target file is `targetFile.json`.
+For more information see [here](http://json-ld.org/spec/latest/json-ld/#flattened-document-form)
+
 ### frame
+
+```frame [options] <sourceFile> <frameFile> [targetFile]```
+
+Apply the frame from `frameFile` to the JSON or JSON-LD in `sourceFile`, and write the result to `targetFile`.
+If not specified, the name of the target file is `targetFile.json`.
+For more information see [here](http://json-ld.org/spec/latest/json-ld-framing/#introduction)
 
 ### normalize
 
+```normalize [options] <sourceFile> [targetFile]```
+
+Normalize a document using the RDF Dataset Normalization Algorithm (URDNA2015).
+For more information see [here](http://json-ld.github.io/normalization/spec/)
+
 ### serialize
+
+```serialize [options] <sourceFile> [targetFile]```
+
+Serialize a document to N-Quads (RDF).
