@@ -4,7 +4,7 @@
 import { Settings } from '../../models/settings-model';
 
 export const SETTINGS: Settings = {
-    version: "0.2.3",
+    version: "1.0.1",
     license: "ISC",
     repository: "https://github.com/Aaron-Sterling/jldc"
 }

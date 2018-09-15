@@ -1,6 +1,6 @@
 {
   "name": "jldc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JSON-LD comand line tool with advanced user interface and error trapping.",
   "main": "./main/main.js",
   "homepage": "https://github.com/Aaron-Sterling/jldc/blob/master/README.md",

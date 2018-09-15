@@ -1,3 +1,7 @@
+## 1.0.1 (14 Sept 2018)
+
+Fixed minor bug.
+
 ## 1.0.0 (14 Sept 2018)
 
 First official release.
